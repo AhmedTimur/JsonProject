@@ -21,7 +21,7 @@ import java.util.Scanner;
 import static com.company.enumFolder.CarState.BASE;
 import static com.company.enumFolder.CarType.TRUCK;
 
-public class ThirdStage {
+public class ThirdAndFourthStage {
 
     public static final GsonBuilder GSON_BUILDER = new GsonBuilder();
     public static final Gson GSON = GSON_BUILDER.setPrettyPrinting().create();
@@ -182,19 +182,19 @@ public class ThirdStage {
     }
 
     private static String readFile() {
-        String json = "";
+        StringBuilder json = new StringBuilder();
         try {
             FileReader fileReader = new FileReader(String.valueOf(WRITE_PATH));
             int temp;
             while ((temp = fileReader.read()) != -1) {
-                json += (char) temp;
+                json.append((char) temp);
             }
-            return json;
+            return json.toString();
         }
         catch (IOException e) {
             System.err.println(e.getMessage());
         }
-        return json;
+        return json.toString();
     }
 
 }
